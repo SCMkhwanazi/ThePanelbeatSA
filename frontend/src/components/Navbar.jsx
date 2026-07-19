@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
 
 function Navbar() {
+    const { user, logout } = useAuth();
     return (
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
             <div className="container">
@@ -38,10 +40,59 @@ function Navbar() {
                             <Link className="nav-link" to="/contact">Contact</Link>
                         </li>
 
-                        <li className="nav-item">
-                            <Link className="nav-link" to="/login">Login</Link>
-                        </li>
+                        {user ? (
 
+                                <>
+                                    <li className="nav-item">
+
+                                        <Link
+                                            className="nav-link"
+                                            to="/dashboard"
+                                        >
+                                            Dashboard
+                                        </Link>
+
+                                    </li>
+
+                                    <li className="nav-item">
+
+                                        <button
+                                            className="btn btn-link nav-link"
+                                            onClick={logout}
+                                        >
+                                            Logout
+                                        </button>
+
+                                    </li>
+                                </>
+
+                            ) : (
+
+                                <>
+                                    <li className="nav-item">
+
+                                        <Link
+                                            className="nav-link"
+                                            to="/login"
+                                        >
+                                            Login
+                                        </Link>
+
+                                    </li>
+
+                                    <li className="nav-item">
+
+                                        <Link
+                                            className="nav-link"
+                                            to="/register"
+                                        >
+                                            Register
+                                        </Link>
+
+                                    </li>
+                                </>
+
+                            )}
                     </ul>
 
                 </div>

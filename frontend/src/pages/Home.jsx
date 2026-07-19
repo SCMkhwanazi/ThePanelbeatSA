@@ -1,9 +1,14 @@
+import Intro from "../components/Intro";
+import WhyChoose from "../components/WhyChoose";
+import FeaturedPanelBeaters from "../components/FeaturedPanelBeaters";
+
 function Home() {
     return (
-        <div className="container mt-5">
-            <h1>Welcome to ThePanelBeatSA</h1>
-            <p>South Africa's Trusted Panel Beater Directory</p>
-        </div>
+        <>
+            <Intro />
+            <WhyChoose />
+            <FeaturedPanelBeaters />
+        </>
     );
 }
 
